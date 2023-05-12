@@ -41,7 +41,26 @@ namespace Produto_interface
 
         public void Remover(Produto produto)
         {
-            throw new NotImplementedException();
+            carrinho.Remove(produto);
+        }
+
+        public void ValorTotal()
+        {
+            Valor = 0;
+
+            if (carrinho.Count > 0 || carrinho != null)
+            {
+                foreach (Produto item in carrinho)
+                {
+                    Valor += item.Preco;
+                }
+                Console.WriteLine($"O total do seu carrinho: {Valor:c}");
+            }
+            else
+            {
+                Console.WriteLine($"Seu carrinho esta vazio!..");
+                
+            }
         }
     }
 }
